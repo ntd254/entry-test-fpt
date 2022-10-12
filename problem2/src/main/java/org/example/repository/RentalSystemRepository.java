@@ -10,7 +10,6 @@ import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.Properties;
 
 public class RentalSystemRepository {
@@ -54,7 +53,6 @@ public class RentalSystemRepository {
             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM furniture")) {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                String table = resultSet.getMetaData().getTableName(1);
                 furniture.add(new Furniture(resultSet.getString(1),
                         resultSet.getString(2),
                         resultSet.getInt(3)));
